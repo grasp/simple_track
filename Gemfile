@@ -17,6 +17,7 @@ gemspec
 gem 'rake'
 
 # Component requirements
+gem 'bcrypt'
 gem 'sass'
 gem 'haml'
 gem 'mongoid', '>= 3.0.0'

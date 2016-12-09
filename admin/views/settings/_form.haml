@@ -1,0 +1,37 @@
+- error = @settings.errors.include?(:project_name)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :project_name, :class => 'control-label'
+  .controls
+    =f.text_field :project_name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:project_name, :class => 'text-error') : pat(:example)
+- error = @settings.errors.include?(:number)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :number, :class => 'control-label'
+  .controls
+    =f.text_field :number, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:number, :class => 'text-error') : pat(:example)
+- error = @settings.errors.include?(:issue_cat)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :issue_cat, :class => 'control-label'
+  .controls
+    =f.text_field :issue_cat, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:issue_cat, :class => 'text-error') : pat(:example)
+- error = @settings.errors.include?(:status_cat)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :status_cat, :class => 'control-label'
+  .controls
+    =f.text_field :status_cat, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:status_cat, :class => 'text-error') : pat(:example)
+- error = @settings.errors.include?(:owner)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :owner, :class => 'control-label'
+  .controls
+    =f.text_field :owner, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:owner, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:settings, :index), :class => 'btn btn-default'
